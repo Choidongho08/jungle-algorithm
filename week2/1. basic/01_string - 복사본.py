@@ -1,52 +1,15 @@
 """
-[문자열 - 회문(Palindrome) 판별]
-
-문제 설명:
-- 주어진 문자열이 회문(앞에서 읽으나 뒤에서 읽으나 같은 문자열)인지 판별합니다.
-- 대소문자를 구분하지 않고, 공백과 특수문자는 무시합니다.
-
-입력:
-- s: 판별할 문자열
-
-출력:
-- True: 회문인 경우
-- False: 회문이 아닌 경우
-
-예제:
-입력: "A man, a plan, a canal: Panama"
-출력: True
-
-입력: "race a car"
-출력: False
-
-힌트:
-- 알파벳과 숫자만 남기고 소문자로 변환하세요
-- 문자열을 뒤집어서 비교하거나, 양 끝에서 시작해 중앙으로 이동하며 비교하세요
-"""
-
 def is_palindrome(s):
-    # TODO: 알파벳과 숫자만 남기고 소문자로 변환하세요
-    # 힌트: isalnum() 메서드와 lower() 메서드 사용
-    pass
-
     new_s = ""
     for a in s:
         if a.isalnum():
             a = a.lower()
             new_s += a
 
-    print(new_s)
-    
-    # TODO: 정제된 문자열이 회문인지 확인하세요
-    # 방법1: 문자열을 뒤집어서 비교 ([::-1] 사용)
-    # 방법2: 양 끝 인덱스를 이용한 투 포인터 방식
-    pass
-
     n = len(new_s)
     
     if n % 2 != 0:
         for i in range(n-1):
-            i = i -1
             if new_s[i] != new_s[-i-1]:
                 return False
     else:
@@ -55,10 +18,19 @@ def is_palindrome(s):
                 return False
 
     return True
-    
-    #return False
+"""
 
+# 개선 with ai
+def is_palindrome(s):
+    new_s = ''.join(a.lower() for a in s if a.isalnum())
 
+    n = len(new_s)
+
+    for i in range(n // 2):
+        if new_s[i] != new_s[-i-1]:
+            return False
+
+    return True
 
 
 # 테스트 케이스
@@ -89,5 +61,4 @@ if __name__ == "__main__":
     result4 = is_palindrome(test4)
     print(f"입력: \"{test4}\"")
     print(f"회문 여부: {result4}")
-
 

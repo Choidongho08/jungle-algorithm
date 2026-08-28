@@ -29,52 +29,28 @@
 힌트:
 - 회전 후 위치: (i, j) -> (j, n-1-i)
 - 새로운 배열을 만들어 값을 채워넣으세요
-
-
-def rotate_matrix_90(matrix):
-    n = len(matrix)
-
-    arr = [[0] * n for _ in range(n)]
-
-    for i in range(n):
-        for j in range(n):
-            arr[j][i] = matrix[i][j]
-
-    for i in range(n):
-        for j in range(n // 2):
-            temp = arr[i][j]
-            arr[i][j] = arr[i][-j-1]
-            arr[i][-j-1] = temp
-    
-    return arr
-
-
-def rotate_matrix_90(matrix):
-    n = len(matrix)
-
-    arr = [[0] * n for _ in range(n)]
-
-    for i in range(n):
-        for j in range(n):
-            arr[j][i] = matrix[i][j]
-
-    for i in range(n):
-        for j in range(n // 2):
-            arr[i][j], arr[i][-j-1] = arr[i][-j-1], arr[i][j]
-    
-    return arr
 """
 
 def rotate_matrix_90(matrix):
+    """
+    2차원 배열을 시계방향으로 90도 회전
+    
+    Args:
+        matrix: N x N 2차원 리스트
+    
+    Returns:
+        회전된 2차원 리스트
+    """
     n = len(matrix)
-
-    arr = [[0] * n for _ in range(n)]
-
-    for i in range(n):
-        for j in range(n):
-            arr[j][n - 1 - 1] = matrix[i][j]
-
-    return arr
+    
+    # TODO: n x n 크기의 새로운 배열을 생성하세요 (0으로 초기화)
+    pass
+        
+    # TODO: 원본 배열의 각 요소를 회전된 위치에 배치하세요
+    # 힌트: (i, j) 위치의 요소는 회전 후 (j, n-1-i) 위치로 이동
+    pass
+    
+    return rotated
 
 def print_matrix(matrix):
     """배열을 보기 좋게 출력하는 헬퍼 함수"""
