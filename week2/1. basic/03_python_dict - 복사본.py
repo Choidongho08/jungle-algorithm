@@ -1,5 +1,5 @@
 """
-
+[파이썬 기본 문법 - 리스트와 딕셔너리 활용]
 
 문제 설명:
 - 학생들의 이름과 점수를 입력받아 평균 점수 이상인 학생들을 찾아 출력합니다.
@@ -29,43 +29,28 @@
 힌트:
 - sum() 함수와 len() 함수를 활용하세요
 - 리스트 컴프리헨션을 사용하면 간결하게 작성할 수 있습니다
-
-
-def find_above_average_students(students):
-    scoreList = [student["score"] for student in students]
-    nameList = [student["name"] for student in students]
-    
-    n = len(scoreList)
-    total_score = 0
-    for score in scoreList:
-        total_score += score
-    
-    avg = total_score / n
-
-    top_students = list()
-
-    for i in range(n):
-        if scoreList[i] > avg:
-            top_students.append(nameList[i])
-    
-    return avg, top_students
 """
 
 def find_above_average_students(students):
+    """
+    평균 점수 이상인 학생들을 찾는 함수
     
-    n = len(students)
+    Args:
+        students: 학생 정보 딕셔너리 리스트
     
-    total_score = sum(student["score"] for student in students)
+    Returns:
+        tuple: (평균 점수, 평균 이상 학생 이름 리스트)
+    """
+    # TODO: 모든 학생의 점수를 리스트로 추출하세요
+    pass
     
-    avg = total_score / n
-
-    top_students = [
-        student["name"]
-        for student in students
-        if student["score"] > avg
-    ]
+    # TODO: 평균 점수를 계산하세요
+    pass
     
-    return avg, top_students
+    # TODO: 평균 이상인 학생들의 이름을 리스트로 추출하세요
+    pass
+    
+    return average, above_average_students
 
 # 테스트 케이스
 if __name__ == "__main__":
