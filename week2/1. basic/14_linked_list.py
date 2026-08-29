@@ -136,6 +136,9 @@ class LinkedList:
         #       self.head = new_node
         #       return
         pass
+        if self.head is None:
+            self.head = new_node
+            return
 
         # ─── Level 2: 마지막 노드 찾기 ──────────────────────────────
         # head 부터 시작해서 next 가 None 이 될 때까지 따라갑니다.
@@ -145,11 +148,15 @@ class LinkedList:
         #   while current.next is not None:
         #       current = current.next
         pass
+        while current.next is not None:
+            current = current.next
 
         # ─── Level 3: 마지막 노드의 next 에 새 노드를 붙이기 ─────────
         # 위 반복문이 끝나면 current 가 곧 마지막 노드입니다.
         # TODO: current.next = new_node
         pass
+
+        current.next = new_node
 
     def print_list(self):
         """
@@ -164,6 +171,8 @@ class LinkedList:
         # TODO: current = self.head
         pass
 
+        current = self.head
+
         # ─── Level 2: 끝까지 순회 ──────────────────────────────────
         # current 가 None 이 되면 "리스트의 끝" 이라는 신호입니다.
         # 한 칸 한 칸 따라가면서 data 를 values 에 모으세요.
@@ -172,6 +181,10 @@ class LinkedList:
         #       values.append(current.data)
         #       current = current.next
         pass
+
+        while current is not None:
+            values.append(current.data)
+            current = current.next
 
         return values
 
