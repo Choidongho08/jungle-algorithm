@@ -1,3 +1,5 @@
+
+
 """
 [정수론 - 최대공약수(GCD)와 최소공배수(LCM)]
 
@@ -39,6 +41,11 @@ def gcd(a, b):
     # recursive를 이용 
     pass
 
+    if b == 0:
+        return a
+
+    return gcd(b, a % b)
+
 def gcd_iterative(a, b):
     """
     반복문을 사용한 최대공약수 계산
@@ -53,6 +60,14 @@ def gcd_iterative(a, b):
     # b가 0이 될 때까지 반복
     pass
 
+    smaller = min(a, b)
+    result = 1
+    for i in range(1, smaller+1):
+        if a % i == 0 and b % i == 0:
+            result = i
+
+    return result
+
 def lcm(a, b):
     """
     최소공배수 계산
@@ -65,6 +80,8 @@ def lcm(a, b):
     """
     # TODO: LCM 계산
     pass
+
+    return (a * b) // gcd(a, b)f
 
 def extended_gcd(a, b):
     """
@@ -83,6 +100,9 @@ def extended_gcd(a, b):
     # 역추적하며 x, y 계산
     pass
 
+    return gcd, x, y
+
+
 def is_prime(n):
     """
     소수 판별
@@ -98,6 +118,18 @@ def is_prime(n):
     # 2부터 sqrt(n)까지 나누어 떨어지는지 확인    
     # 3부터 sqrt(n)까지 홀수만 확인
     pass 
+
+    if n < 2:
+        return False
+
+    for i in range(2, sqrt(n) + 1):
+        if n % i == 0:
+            return False
+
+    return True
+
+def sqrt(n):
+    return int(n ** 0.5)
 
 # 테스트 케이스
 if __name__ == "__main__":
