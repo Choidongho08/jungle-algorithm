@@ -34,7 +34,8 @@ def find_duplicates_brute_force(nums):
     for i in range(n):
         for j in range(i+1, n):
             if nums[i] == nums[j]:
-                duplicates.append(nums[i])
+                if nums[i] not in duplicates:
+                    duplicates.append(nums[i])
     
     return duplicates
 
