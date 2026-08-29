@@ -26,6 +26,7 @@
 - i < j 조건을 유지하여 중복을 방지하세요
 
 
+"""
 def find_two_sum_pairs(nums, target):
     pairs = []
     n = len(nums)
@@ -34,10 +35,10 @@ def find_two_sum_pairs(nums, target):
         for j in range(n - i - 1):
             j += i + 1
             if nums[i] + nums[j] == target:
-                pairs.append({i, j})
+                pairs.append((i, j))
                 
     return pairs
-
+"""
 def find_two_sum_pairs(nums, target):
     pairs = []
     n = len(nums)
@@ -48,7 +49,6 @@ def find_two_sum_pairs(nums, target):
                 pairs.append((i, j))
 
     return pairs
-"""
 
 def find_two_sum_pairs(nums, target):
     pairs = []
@@ -63,7 +63,7 @@ def find_two_sum_pairs(nums, target):
         seen[nums[i]] = i
 
     return pairs
-
+"""
 # 테스트 케이스
 if __name__ == "__main__":
     # 테스트 케이스 1
