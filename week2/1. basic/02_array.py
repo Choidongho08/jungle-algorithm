@@ -72,7 +72,7 @@ def rotate_matrix_90(matrix):
 
     for i in range(n):
         for j in range(n):
-            arr[j][n - 1 - 1] = matrix[i][j]
+            arr[j][n - i - 1] = matrix[i][j]
 
     return arr
 
