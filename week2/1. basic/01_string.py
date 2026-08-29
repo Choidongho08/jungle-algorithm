@@ -34,8 +34,6 @@ def is_palindrome(s):
         if a.isalnum():
             a = a.lower()
             new_s += a
-
-    print(new_s)
     
     # TODO: 정제된 문자열이 회문인지 확인하세요
     # 방법1: 문자열을 뒤집어서 비교 ([::-1] 사용)
