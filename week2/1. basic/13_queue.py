@@ -48,7 +48,7 @@ def process_print_queue(jobs):
 
     while len(queue) != 0:
         jop = queue.popleft()
-        print(jop)
+        print("처리: " + jop)
         processed.append(jop)
     
     return processed
