@@ -49,6 +49,16 @@ def bfs(graph, start):
     ## 방문한 정점 집합
     pass
 
+    queue = deque()
+    queue.append(start)
+    visited.append(start)
+    while len(queue) != 0:
+        top = queue.popleft()
+        for neer in graph[top]:
+            if neer is not None and neer not in visited:
+                visited.append(neer)
+                queue.append(neer)
+
     # TODO: 큐가 빌 때까지 반복
     ## 큐에서 정점 꺼내기
     ## 인접한 정점들 확인
