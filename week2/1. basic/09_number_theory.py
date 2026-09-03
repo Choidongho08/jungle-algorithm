@@ -1,5 +1,3 @@
-
-
 """
 [정수론 - 최대공약수(GCD)와 최소공배수(LCM)]
 
@@ -60,13 +58,10 @@ def gcd_iterative(a, b):
     # b가 0이 될 때까지 반복
     pass
 
-    smaller = min(a, b)
-    result = 1
-    for i in range(1, smaller+1):
-        if a % i == 0 and b % i == 0:
-            result = i
+    while b != 0:
+        a, b = b, a % b
 
-    return result
+    return a
 
 def lcm(a, b):
     """
@@ -81,7 +76,7 @@ def lcm(a, b):
     # TODO: LCM 계산
     pass
 
-    return (a * b) // gcd(a, b)f
+    return a*b // gcd(a, b)
 
 def extended_gcd(a, b):
     """
@@ -100,8 +95,13 @@ def extended_gcd(a, b):
     # 역추적하며 x, y 계산
     pass
 
-    return gcd, x, y
+    if b == 0:
+        return (a, 1, 0)
 
+    gcd, x1, y1 = extended_gcd(b, a % b)
+    x = y1
+    y = x1 - (a // b) * y1
+    return (gcd, x, y)
 
 def is_prime(n):
     """
@@ -122,14 +122,17 @@ def is_prime(n):
     if n < 2:
         return False
 
-    for i in range(2, sqrt(n) + 1):
+    if n == 2:
+        return True
+
+    if n % 2 == 0:
+        return False
+
+    for i in range(3, int(n ** 0.5)):
         if n % i == 0:
             return False
-
+        
     return True
-
-def sqrt(n):
-    return int(n ** 0.5)
 
 # 테스트 케이스
 if __name__ == "__main__":
