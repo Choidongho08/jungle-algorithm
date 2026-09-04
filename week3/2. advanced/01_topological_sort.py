@@ -41,12 +41,27 @@ def topological_sort(vertices, edges):
     """
     # TODO: 그래프와 진입 차수 초기화
     pass
+
+    graph = {}
+    depth = {}
+    for vertice in range(vertices):
+        graph[vertice] = list()
+        depth[vertice] = 0
     
     # TODO: 그래프 구성 및 진입 차수 계산
     pass
+
+    for edge in edges:
+        graph[edge[0]].append(edge[1])
+        depth[edge[1]] += 1
     
     # TODO: 진입 차수가 0인 정점들을 큐에 추가
     pass
+
+    queue = deque()
+    for vertice in range(vertices):
+        if depth[vertice] == 0:
+            queue.append(vertice)
     
     result = []
     
@@ -54,6 +69,14 @@ def topological_sort(vertices, edges):
     ## 큐에서 정점 꺼내기
     ## 인접한 정점들의 진입 차수 감소
     pass
+
+    while len(queue) != 0:
+        top = queue.popleft()
+        result.append(top)
+        for vertice in graph[top]:
+            depth[vertice] -= 1
+            if depth[vertice] == 0:
+                queue.append(vertice)
     
     return result
 
